@@ -1,64 +1,64 @@
 {
-	"name": "@pori15/mirror-editor",
-	"version": "1.0.5",
-	"description": "一个通用的编辑器与配置数据双向同步库，支持 Monaco Editor、textarea、CodeMirror 等多种编辑器",
-	"keywords": [
-		"editor",
-		"sync",
-		"vue3",
-		"monaco",
-		"codemirror",
-		"双向绑定",
-		"编辑器同步"
-	],
-	"author": "pori",
-	"license": "MIT",
-	"type": "module",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/pori15/mirror-editor.git"
-	},
-	"files": [
-		"dist",
-		"types",
-		"README.md",
-		"image"
-	],
-	"scripts": {
-		"dev": "vite --host",
-		"build": "vite build && pnpm vue-tsc --emitDeclarationOnly --outDir dist/types",
-		"preview": "vite preview",
-		"check": "pnpm exec biome check --write",
-		"prepare": "lefthook install",
-		"release": "bumpp && pnpm publish",
-		"release:patch": "bumpp patch --commit --tag --push && pnpm publish",
-		"release:minor": "bumpp minor --commit --tag --push && pnpm publish",
-		"release:major": "bumpp major --commit --tag --push && pnpm publish",
-		"release:publish": "bumpp patch --commit --tag --push && pnpm publish"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.0.0",
-		"@types/node": "^24.0.3",
-		"@types/vue": "^2.0.0",
-		"@vitejs/plugin-vue": "^6.0.0",
-		"bumpp": "^10.2.0",
-		"changelogen": "^0.6.1",
-		"lefthook": "^1.11.14",
-		"typescript": "^5.8.3",
-		"unplugin-auto-import": "^19.3.0",
-		"unplugin-vue-components": "^28.7.0",
-		"vite": "npm:rolldown-vite@latest",
-		"vue-tsc": "^2.2.10"
-	},
-	"peerDependencies": {
-		"vue": "^3.4.0 || ^3.5.0"
-	},
-	"main": "./dist/mirror-editor.es.js",
-	"module": "./dist/mirror-editor.es.js",
-	"umd:main": "./dist/mirror-editor.umd.js",
-	"types": "./dist/types/index.d.ts",
-	"packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
-	"dependencies": {
-		"monaco-editor": "^0.52.2"
-	}
+  "name": "@pori15/mirror-editor",
+  "version": "1.0.6",
+  "description": "一个通用的编辑器与配置数据双向同步库，支持 Monaco Editor、textarea、CodeMirror 等多种编辑器",
+  "keywords": [
+    "editor",
+    "sync",
+    "vue3",
+    "monaco",
+    "codemirror",
+    "双向绑定",
+    "编辑器同步"
+  ],
+  "author": "pori",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pori15/mirror-editor.git"
+  },
+  "files": [
+    "dist",
+    "types",
+    "README.md",
+    "image"
+  ],
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build && pnpm vue-tsc --emitDeclarationOnly --outDir dist/types",
+    "preview": "vite preview",
+    "check": "pnpm exec biome check --write",
+    "prepare": "lefthook install",
+    "release": "bumpp && pnpm publish",
+    "release:patch": "bumpp patch --commit --tag -y --push && pnpm publish",
+    "release:minor": "bumpp minor --commit --tag --push && pnpm publish",
+    "release:major": "bumpp major --commit --tag --push && pnpm publish",
+    "release:publish": "bumpp patch --commit --tag --push && pnpm publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.0.0",
+    "@types/node": "^24.0.3",
+    "@types/vue": "^2.0.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "bumpp": "^10.2.0",
+    "changelogen": "^0.6.1",
+    "lefthook": "^1.11.14",
+    "typescript": "^5.8.3",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.7.0",
+    "vite": "npm:rolldown-vite@latest",
+    "vue-tsc": "^2.2.10"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0 || ^3.5.0"
+  },
+  "main": "./dist/mirror-editor.es.js",
+  "module": "./dist/mirror-editor.es.js",
+  "umd:main": "./dist/mirror-editor.umd.js",
+  "types": "./dist/types/index.d.ts",
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977",
+  "dependencies": {
+    "monaco-editor": "^0.52.2"
+  }
 }
