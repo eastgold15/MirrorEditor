@@ -1,6 +1,6 @@
 {
 	"name": "@pori15/mirror-editor",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "一个通用的编辑器与配置数据双向同步库，支持 Monaco Editor、textarea、CodeMirror 等多种编辑器",
 	"keywords": [
 		"editor",
@@ -30,10 +30,10 @@
 		"preview": "vite preview",
 		"check": "pnpm exec biome check --write",
 		"prepare": "lefthook install",
-		"release": "bumpp",
-		"release:patch": "bumpp patch --commit --tag --push",
-		"release:minor": "bumpp minor --commit --tag --push",
-		"release:major": "bumpp major --commit --tag --push",
+		"release": "bumpp && pnpm publish",
+		"release:patch": "bumpp patch --commit --tag --push && pnpm publish",
+		"release:minor": "bumpp minor --commit --tag --push && pnpm publish",
+		"release:major": "bumpp major --commit --tag --push && pnpm publish",
 		"release:publish": "bumpp patch --commit --tag --push && pnpm publish"
 	},
 	"devDependencies": {
