@@ -1,0 +1,52 @@
+<div id="draggable" style="width: 100px; height: 100px; background: red; position: absolute;"></div>
+
+<script>
+  const draggable = document.getElementById('draggable');
+  let isDragging = false;
+  let offsetX, offsetY;
+  let animationFrameId = null;
+  
+  // 鼠标按下时开始拖拽
+  draggable.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    
+    // 计算鼠标在元素内的偏移量
+    offsetX = e.clientX - draggable.getBoundingClientRect().left;
+    console.log(offsetX);
+    offsetY = e.clientY - draggable.getBoundingClientRect().top;
+    console.log(offsetY);
+  });
+  
+  // 鼠标移动时更新位置
+  document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    
+    // 保存事件数据，而不是直接在requestAnimationFrame中使用事件对象
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    
+    // 取消之前的动画帧
+    if (animationFrameId !== null) {
+      cancelAnimationFrame(animationFrameId);
+    }
+    
+    // 在下一帧更新位置
+    animationFrameId = requestAnimationFrame(() => {
+      // 使用保存的数据，而不是事件对象
+      draggable.style.left = (mouseX - offsetX) + 'px';
+      draggable.style.top = (mouseY - offsetY) + 'px';
+      animationFrameId = null;
+    });
+  });
+  
+  // 鼠标松开时结束拖拽
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    
+    // 确保取消任何未执行的动画帧
+    if (animationFrameId !== null) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+  });
+</script>

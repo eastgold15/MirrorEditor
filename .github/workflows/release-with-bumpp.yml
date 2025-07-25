@@ -1,0 +1,58 @@
+name: Release with Bumpp
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Release type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GIT_TOKEN }}
+          ref: main  # 明确指定检出main分支
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install bumpp
+        run: pnpm add -D bumpp
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "1960825664@qq.com"
+          git config --local user.name "pori"
+
+      - name: Release
+        run: |
+          RELEASE_TYPE=${{ github.event.inputs.release_type || 'patch' }}
+          pnpm run release:$RELEASE_TYPE
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
