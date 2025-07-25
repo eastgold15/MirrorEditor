@@ -4,27 +4,27 @@
 
 ## 本地发布
 
-### 交互式发布
+### 交互式发布并推送到 npm
 ```bash
 pnpm run release
 ```
-这将启动交互式发布流程，你可以选择版本类型（patch/minor/major）。
+这将启动交互式发布流程，你可以选择版本类型（patch/minor/major），完成后自动推送到 npm。
 
-### 指定版本类型发布
+### 指定版本类型发布并推送到 npm
 ```bash
-# 补丁版本 (1.0.0 -> 1.0.1)
+# 补丁版本 (1.0.0 -> 1.0.1) 并发布到 npm
 pnpm run release:patch
 
-# 次要版本 (1.0.0 -> 1.1.0)
+# 次要版本 (1.0.0 -> 1.1.0) 并发布到 npm
 pnpm run release:minor
 
-# 主要版本 (1.0.0 -> 2.0.0)
+# 主要版本 (1.0.0 -> 2.0.0) 并发布到 npm
 pnpm run release:major
 ```
 
-### 发布到 npm
+### 兼容命令
 ```bash
-# 发布补丁版本并推送到 npm
+# 与 release:patch 相同，发布补丁版本并推送到 npm
 pnpm run release:publish
 ```
 
@@ -46,7 +46,7 @@ pnpm run release:publish
 4. **创建提交**: 创建版本发布提交
 5. **创建标签**: 创建对应的 Git 标签
 6. **推送代码**: 推送代码和标签到远程仓库
-7. **发布到 npm**: （仅 `release:publish` 命令）发布到 npm 仓库
+7. **发布到 npm**: 自动发布到 npm 仓库
 
 ## 配置文件
 

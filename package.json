@@ -32,9 +32,9 @@
     "prepare": "lefthook install",
     "release": "bumpp && pnpm publish",
     "release:patch": "bumpp patch --commit --tag -y --push && pnpm publish",
-    "release:minor": "bumpp minor --commit --tag --push && pnpm publish",
-    "release:major": "bumpp major --commit --tag --push && pnpm publish",
-    "release:publish": "bumpp patch --commit --tag --push && pnpm publish"
+    "release:minor": "bumpp minor --commit --tag -y --push && pnpm publish",
+    "release:major": "bumpp major --commit --tag -y --push && pnpm publish",
+    "release:publish": "bumpp patch --commit --tag -y --push && pnpm publish"
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.0",
