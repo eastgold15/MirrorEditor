@@ -1,6 +1,6 @@
 {
 	"name": "@pori15/mirror-editor",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "一个通用的编辑器与配置数据双向同步库，支持 Monaco Editor、textarea、CodeMirror 等多种编辑器",
 	"keywords": [
 		"editor",
